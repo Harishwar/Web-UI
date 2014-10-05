@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Page</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/modernizr-latest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        /* Password validation */
+        var password1 = $('#inputPsswd');
+        var password2 = $('#inputCnfrmpsswd');
+        var passwordsInfo = $('#pswd-info');
+        passwordStrengthCheck(password1, password2, passwordsInfo);
+        /* Password popover box */
+        $('[data-toggle="popover"]').popover({
+            trigger: 'hover',
+            'placement': 'bottom'
+        });
+        /* Check browser localStorage support */
+        if (!Modernizr.localstorage) {
+            alert('This Browser Doesn\'t Support Local Storage.');
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Registration</h1>
+        <form method="POST" onsubmit="saveDetails();return false;" class="form-horizontal" role="form">
+            <legend></legend>
+            <div class="container">
+                <div class="form-group">
+                    <label for="fname" class="col-xs-3">First Name</label>
+                    <input type="text" class="col-xs-6" name="fname" id="inputFname" class="form-control" value="" required="required" title="First Name" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputLname" class="col-xs-3">Last Name</label>
+                    <input type="text" class="col-xs-6" name="inputLname" id="inputLname" class="form-control" value="" required="required" title="Last Name" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-xs-3">Email</label>
+                    <input type="email" class="col-xs-6" name="inputEmail" id="inputEmail" class="form-control" value="" required="required" title="Email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="inputPsswd" class="col-xs-3">Password</label>
+                    <input type="password" class="col-xs-6" name="inputPsswd" id="inputPsswd" class="form-control" required="required" title="Password" placeholder="********">
+                    <p class="glyphicon glyphicon-question-sign col-xs-1" data-toggle="popover" data-placement="right" title="Password" data-content="Password must contain minimum 3 uppercase, 2 lowercase and 2 special chars"></p>
+                </div>
+                <div class="form-group">
+                    <label for="inputCnfrmpsswd" class="col-xs-3">Confirm Password</label>
+                    <input type="password" class="col-xs-6" name="inputCnfrmpsswd" id="inputCnfrmpsswd" class="form-control" required="required" title="Confirm Password" placeholder="Same as Password">
+                    <div id="progressdiv" class="col-xs-offset-3 col-xs-9" style="padding-top:10px;">
+                        <progress max="100" style="float:left;" value="0" id="progressbar"></progress>
+                        <p id="pswd-info" style="float:left; padding-left:10px;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDob" class="col-xs-3">D.O.B</label>
+                    <input type="date" class="col-xs-6" name="inputDob" id="inputDob" class="form-control" value="" required="required" title="Date of Birth" min="2013-01-01" max="2014-12-31" placeholder="mm/dd/yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="inputDobwt" class="col-xs-3">D.O.B with Time</label>
+                    <input type="datetime" class="col-xs-6" name="inputDobwt" id="inputDobwt" class="form-control" value="" required="required" title="Date of Birth with Time" placeholder="mm/dd/yyyy, --:-- --">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocaldob" class="col-xs-3">Local D.O.B</label>
+                    <input type="datetime-local" class="col-xs-6" name="inputLocaldob" id="inputLocaldob" class="form-control" value="" required="required" title="Date of Birth with Local Time" placeholder="mm/dd/yyyy, --:-- --">
+                </div>
+                <div class="form-group">
+                    <label for="inputSsn" class="col-xs-3">SSN</label>
+                    <input type="text" class="col-xs-6" name="inputSsn" id="inputSsn" class="form-control" value="" min="{5" } max="" step="" required="required" title="Social Security Number" placeholder="999-99-9999" pattern="\d{3}-?\d{2}-?\d{4}">
+                </div>
+                <div class="form-group">
+                    <label for="inputPhone" class="col-xs-3">Phone</label>
+                    <input type="tel" class="col-xs-6" name="inputPhone" id="inputPhone" class="form-control" value="" required="required" title="3207420" placeholder="(999) 999-9999" pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$" maxlength="14">
+                </div>
+                <div class="form-group">
+                    <label for="inputCc" class="col-xs-3">Credit Card</label>
+                    <input type="text" class="col-xs-6" name="inputCc" id="inputCc" class="form-control" value="" min="{5" } max="" step="" required="required" title="" pattern="[0-9]{13,16}" placeholder="1111222233334444">
+                </div>
+                <div class="text-center">
+                    <input type="reset" value="Reset" class="btn btn-lg btn-light">&emsp;
+                    <button type="submit" class="btn btn-lg btn-dark">Submit</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment 2</p>
+    </footer>
+</body>
+
+</html>
