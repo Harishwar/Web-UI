@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Page</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/modernizr-latest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        /* Password validation */
+        var password1 = $('#inputPsswd');
+        var password2 = $('#inputCnfrmpsswd');
+        var passwordsInfo = $('#pswd-info');
+        passwordStrengthCheck(password1, password2, passwordsInfo);
+
+        /* Email validation */
+        var email1 = $('#inputEmail');
+        var emailinfo = $('#email-info');
+        validateEmail(email1, emailinfo);
+
+        /* Phone number validation */
+        var num1 = $('#inputPhone');
+        var numinfo = $('#num-info');
+        validatePhone(num1, numinfo);
+
+        /* Password popover box */
+        $('[data-toggle="popover"]').popover({
+            trigger: 'hover',
+            'placement': 'bottom'
+        });
+
+        /* Check browser localStorage support */
+        if (!Modernizr.localstorage) {
+            alert('This Browser Doesn\'t Support Local Storage.');
+        } else if (!Modernizr.sessionstorage) {
+            alert('This Browser Doesn\'t Support Session Storage.');
+        };
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Registration</h1>
+        <form id="regForm" onsubmit="mainFunc(this);return false;" class="form-horizontal" role="form">
+            <legend></legend>
+            <div class="container">
+                <div class="form-group">
+                    <label for="fname" class="col-xs-3">First Name</label>
+                    <input type="text" class="col-xs-6" name="fname" id="inputFname" class="form-control" value="" required="required" title="First Name" placeholder="First Name" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="inputLname" class="col-xs-3">Last Name</label>
+                    <input type="text" class="col-xs-6" name="inputLname" id="inputLname" class="form-control" value="" required="required" title="Last Name" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-xs-3">Email</label>
+                    <input type="text" class="col-xs-6" name="inputEmail" id="inputEmail" class="form-control" value="" required="required" title="Email" placeholder="name@email.com">&emsp;
+                    <text id="email-info"></text>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-xs-3">URL</label>
+                    <input type="url" class="col-xs-6" name="inputUrl" id="inputUrl" class="form-control" value="" required="required" title="" placeholder="http://google.com">&emsp;
+                </div>
+                <div class="form-group">
+                    <label for="inputPsswd" class="col-xs-3">Password</label>
+                    <input type="password" class="col-xs-6" name="inputPsswd" id="inputPsswd" class="form-control" required="required" title="Password" placeholder="********">
+                    <p class="glyphicon glyphicon-question-sign col-xs-1" data-toggle="popover" data-placement="right" title="Password" data-content="Password must contain minimum 3 uppercase, 2 lowercase and 2 special chars"></p>
+                </div>
+                <div class="form-group">
+                    <label for="inputCnfrmpsswd" class="col-xs-3">Confirm Password</label>
+                    <input type="password" class="col-xs-6" name="inputCnfrmpsswd" id="inputCnfrmpsswd" class="form-control" required="required" title="Confirm Password" placeholder="Same as Password">
+                    <div id="progressdiv" class="col-xs-offset-3 col-xs-9" style="padding-top:10px;">
+                        <progress max="100" style="float:left;" value="0" id="progressbar"></progress>
+                        <p id="pswd-info" style="float:left; padding-left:10px;"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDob" class="col-xs-3">D.O.B</label>
+                    <input type="date" class="col-xs-6" name="inputDob" id="inputDob" class="form-control" value="" required="required" title="Date of Birth" min="2013-01-01" max="2014-12-31" placeholder="mm/dd/yyyy">
+                </div>
+                <div class="form-group">
+                    <label for="inputDobwt" class="col-xs-3">D.O.B with Time</label>
+                    <input type="datetime" class="col-xs-6" name="inputDobwt" id="inputDobwt" class="form-control" value="" required="required" title="Date of Birth with Time" placeholder="mm/dd/yyyy, --:-- --">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocaldob" class="col-xs-3">Local D.O.B</label>
+                    <input type="datetime-local" class="col-xs-6" name="inputLocaldob" id="inputLocaldob" class="form-control" value="" required="required" title="Date of Birth with Local Time" placeholder="mm/dd/yyyy, --:-- --">
+                </div>
+                <div class="form-group">
+                    <label for="inputSsn" class="col-xs-3">SSN</label>
+                    <input type="text" class="col-xs-6" name="inputSsn" id="inputSsn" class="form-control" value="" min="{5" } max="" step="" required="required" title="Social Security Number" placeholder="999-99-9999" pattern="\d{3}-?\d{2}-?\d{4}">
+                </div>
+                <div class="form-group">
+                    <label for="inputPhone" class="col-xs-3">Phone</label>
+                    <input type="text" class="col-xs-6" name="inputPhone" id="inputPhone" class="form-control" value="" required="required" title="3207420" placeholder="999-999-9999" maxlength="14">&emsp;
+                    <text id="num-info"></text>
+                </div>
+                <div class="form-group">
+                    <label for="inputCc" class="col-xs-3">Credit Card</label>
+                    <input type="text" class="col-xs-6" name="inputCc" id="inputCc" class="form-control" value="" min="{5" } max="" step="" required="required" title="" pattern="[0-9]{13,16}" placeholder="1111222233334444">
+                </div>
+                <div class="text-center">
+                    <input type="reset" value="Reset" class="btn btn-lg btn-light">&emsp;
+                    <button type="submit" class="btn btn-lg btn-dark">Submit</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+    <div id="networkLost" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>&nbsp;
+                </button>
+                <br>
+                <h4 class="text-center">
+                    <text class="glyphicon glyphicon-warning-sign"></text>&nbsp;Network Connection Lost</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment 3</p>
+    </footer>
+</body>
+
+</html>

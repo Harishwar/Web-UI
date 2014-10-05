@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/modernizr-latest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        if (readFromLocalStorage == null && readFromSessionStorage == null) {
+            alert("Please register first");
+            goToRegPage();
+        } else {
+            if (!Modernizr.localstorage) {
+                /* Show alert if localStorage is not supported */
+                var lsd = document.getElementById("localStorageDetails");
+                lsd.className = "hidden";
+                var lsa = document.getElementById("localStorageAlert");
+                lsa.className = "alert alert-danger show";
+            } else if (readFromLocalStorage != null) {
+                /* Read from localStorage and populate list */
+                var localList = document.getElementsByName("localDetails");
+                var lregObj = readFromLocalStorage();
+                var lregObjj = readFromJSONString(lregObj);
+                localList[0].innerHTML = lregObjj.firstname;
+                localList[1].innerHTML = lregObjj.lastname;
+                localList[2].innerHTML = lregObjj.email;
+                localList[3].innerHTML = lregObjj.url;
+                localList[4].innerHTML = lregObjj.dob;
+                localList[5].innerHTML = lregObjj.dobwt;
+                localList[6].innerHTML = lregObjj.localdobwt;
+                localList[7].innerHTML = lregObjj.ssn;
+                localList[8].innerHTML = lregObjj.phone;
+                localList[9].innerHTML = lregObjj.cc;
+            };
+
+            if (!Modernizr.sessionstorage) {
+                /* Show alert if sessionStorage is not supported */
+                var ssd = document.getElementById("sessionStorageDetails");
+                ssd.className = "hidden";
+                var ssa = document.getElementById("sessionStorageAlert");
+                ssa.className = "alert alert-danger show";
+            } else if (readFromSessionStorage != null) {
+                /* Read from sessionStorage and populate list */
+                var sessionList = document.getElementsByName("sessionDetails");
+                var sregObj = readFromSessionStorage();
+                var sregObjj = readFromJSONString(sregObj);
+                sessionList[0].innerHTML = sregObjj.firstname;
+                sessionList[1].innerHTML = sregObjj.lastname;
+                sessionList[2].innerHTML = sregObjj.email;
+                sessionList[3].innerHTML = sregObjj.url;
+                sessionList[4].innerHTML = sregObjj.dob;
+                sessionList[5].innerHTML = sregObjj.dobwt;
+                sessionList[6].innerHTML = sregObjj.localdobwt;
+                sessionList[7].innerHTML = sregObjj.ssn;
+                sessionList[8].innerHTML = sregObjj.phone;
+                sessionList[9].innerHTML = sregObjj.cc;
+            };
+
+        };
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Pane -->
+            <div class="col-xs-6">
+                <h3>localStorage
+                    <small>Data</small>
+                </h3>
+                <div id="localStorageDetails">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>First Name:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Last Name:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>URL:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>D.O.B:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>D.O.B with Time:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Local D.O.B:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>SSN:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Phone:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Credit Card:</strong>
+                            <text name="localDetails"></text>
+                        </li>
+                    </ul>
+                </div>
+                <div id="localStorageAlert" class="hidden" role="alert">This Browser Doesn't Support Local Storage.</div>
+            </div>
+
+            <!-- Right Pane -->
+            <div class="col-xs-6">
+                <h3>sessionStorage
+                    <small>Data</small>
+                </h3>
+                <div id="sessionStorageDetails">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>First Name:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Last Name:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>URL:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>D.O.B:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>D.O.B with Time:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Local D.O.B:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>SSN:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Phone:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Credit Card:</strong>
+                            <text name="sessionDetails"></text>
+                        </li>
+                    </ul>
+                </div>
+                <div id="sessionStorageAlert" class="hidden" role="alert">This Browser Doesn't Support Session Storage.</div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment 3</p>
+    </footer>
+</body>
+
+</html>
