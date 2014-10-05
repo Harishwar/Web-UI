@@ -1,4 +1,4 @@
 Web-UI
 ======
 
-Repository for Web UI course at San Jose State University
+HTML5: HTML5 MARK-DATALIST SCOs

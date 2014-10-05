@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Survey</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body>
+    <div id="top" class="header">
+            <div class="col-lg-12 text-left">
+                <header>
+                    <h3>How did you like the center?</h3>
+                </header>
+                <h4><div name="surveydiv" style="margin-left:5%;">
+                <form action="summary.html" onsubmit="return submitSurvey()" name="q4form" method="GET">
+                <p style="margin-right:0%;">Comments :</p>
+                <div style="margin-left:5%;"><textarea id="surveyCommentText" placeholder="Enter your comments"></textarea></div>
+                <br>
+                <p style="margin-right:0%;">Select Test Area Location:</p>
+                <div style="margin-left:5%;">
+                    <p style="margin-right:0%;">City : </p><select style="margin-left:5%;" id="surveyCityOpt" size="4">
+                        <option data-city="sanjose">San Jose</option>
+                        <option data-city="sanfrancisco">San Francisco</option>
+                        <option data-city="mountainview">Mountain View</option>
+                        <option data-city="paloalto">Palo Alto</option>
+                        <option data-city="fremont">Fremont</option>
+                    </select>
+                    <p>Room Number : </p>
+                    <datalist id="surveyRoomOpts">
+                        <select name="surveyRoomOpt" style="margin-left:5%;" size="4">
+                            <option value="337">Room 337</option>
+                            <option value="210">Room 210</option>
+                            <option value="110">Room 110</option>
+                            <option value="410">Room 410</option>
+                            <option value="312">Room 312</option>
+                        </select><br>
+                        If other, please specify:
+                    </datalist>
+                    <input style="margin-left:5%;" id="surveyRoomOpt" name="surveyRoomOpt" list="surveyRoomOpts">
+                </div>
+                <br>
+                <center>
+                    <input class="btn btn-lg btn-dark" type="submit" value="Submit">&emsp;&emsp;
+                    <input class="btn btn-lg btn-light" type="reset" value="Clear Selection">
+                </center>
+                </form></h4>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <center>
+            <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+        </center>
+    </footer>
+</body>
+</html>

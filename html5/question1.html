@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Question 1</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <div id="top" class="header">
+        <div class="text-vertical-center">
+            <div class="col-lg-12 text-center">
+                <header>
+                    <h3>Given points and select the formula to find the equation of the given line.</h3>
+                </header>
+                <img src="img/question1.png"  style="float: center; margin-right: 0%; " width="200px" height="200px">
+                <h4><form action="question2.html" onsubmit="return submitques('q1')" name="q1form" method="GET">
+                    <input type="radio" name="q1" id="q1" value="q1op1">&nbsp;
+                    <math xmlns="http://www.w3.org/TR/MathML3/">
+                        <mrow>
+                        <mi>y</mi>
+                        <mo>=</mo>
+                        <mi>mx</mi>
+                        <mo>+</mo>
+                        <mi>b</mi>
+                        </mrow>
+                    </math>&emsp;&emsp;
+                    <input type="radio" id="q1" name="q1" value="q1op2">&nbsp;
+                    <math xmlns="http://www.w3.org/TR/MathML3/">
+                    <mrow>
+                        <msup>
+                        <mfenced separators=''>
+                            <mi>x</mi><mo>-</mo><mn>h</mn>
+                        </mfenced>
+                        <mn>2</mn>
+                        </msup>
+                        <mo>+</mo>
+                        <msup>
+                        <mfenced separators=''>
+                            <mi>y</mi><mo>-</mo><mn>k</mn>
+                        </mfenced>
+                        <mn>2</mn>
+                        </msup>
+                        <mo>=</mo>
+                        <msup><mi>r</mi><mn>2</mn></msup>
+                    </mrow>
+                    </math>
+                    <br><br>
+                    <input type="radio" id="q1" name="q1" value="q1op3">&nbsp;
+                        <math xmlns="http://www.w3.org/TR/MathML3/">
+                        <mrow>
+                            <mi>y</mi>
+                            <mo>-</mo>
+                            <msub><mi>y</mi><mn>1</mn></msub>
+                            <mo>=</mo>
+                            <mi>m</mi>
+                            <mfenced separators=''>
+                                <mi>x</mi>
+                                <mo>-</mo>
+                                <msub><mi>x</mi><mn>1</mn></msub>
+                            </mfenced>
+                        </mrow>
+                        </math>
+                        &emsp;&emsp;
+                    <input type="radio" id="q1" name="q1" value="q1op4">&nbsp;
+                        <math xmlns="http://www.w3.org/TR/MathML3/">
+                            <mrow>
+                            <mi>y</mi>
+                            <mo>-</mo>
+                            <msub><mi>y</mi><mn>1</mn></msub>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow><msub><mi>y</mi><mn>2</mn></msub><mo>-</mo><msub><mi>y</mi><mn>1</mn></mrow>
+                                <mrow><msub><mi>x</mi><mn>2</mn></msub><mo>-</mo><msub><mi>x</mi><mn>1</mn></mrow>
+                            </mfrac>
+                            <mfenced separators=''>
+                                <mi>x</mi>
+                                <mo>-</mo>
+                                <msub><mi>x</mi><mn>2</mn></msub>
+                            </mfenced>
+                            </mrow>
+                        </math>
+                        <br><br>
+                    <input class="btn btn-lg btn-dark" type="submit" value="Submit">&emsp;&emsp;
+                    <input class="btn btn-lg btn-light" type="reset" value="Clear Selection">
+                </form></h4>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <center>
+            <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+        </center>
+    </footer>
+</body>
+</html>

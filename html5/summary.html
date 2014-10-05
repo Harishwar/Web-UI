@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Summary</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body onload="getScore();">
+    <div id="top" class="header">
+            <div class="col-lg-12 text-left">
+                <header>
+                    <h3>Score Card</h3>
+                </header>
+                <br>
+                <div style="margin-left:10%;">
+                <details>
+                    <summary><h4 style="display:inline-block;">Quantative Section</h4></summary>
+                    <div style="margin-left:5%;">
+                    <p><strong>Number of Questions Answered: </strong><text id="quanttotal">0</text></p>
+                    <p><strong>Number of Correct Answers: </strong><text id="quantcorrect">0</text></p>
+                    <p><strong>Score: </strong><text id="quantscore">0</text></p>
+                    </div>
+                </details>
+                <details>
+                    <summary><h4 style="display:inline-block;">Reading Section</h4></summary>
+                    <div style="margin-left:5%;">
+                    <p><strong>Number of Questions Answered: </strong><text id="readingtotal">0</text></p>
+                    <p><strong>Number of Correct Answers: </strong><text id="readingcorrect">0</text></p>
+                    <p><strong>Score: </strong><text id="readingscore">0</text></p>
+                    </div>
+                </details>
+                <details>
+                    <summary><h4 style="display:inline-block;">Audio/Video Section</h4></summary>
+                    <div style="margin-left:5%;">
+                    <p><strong>Number of Questions Answered: </strong><text id="avtotal">0</text></p>
+                    <p><strong>Number of Correct Answers: </strong><text id="avcorrect">0</text></p>
+                    <p><strong>Score: </strong><text id="avscore">0</text></p>
+                    </div>
+                </details>
+                </div>
+
+            </div>
+        <center>
+        <h3>Thank You!!</h3>
+        <br>
+        <button class="btn btn-lg btn-dark" onclick="goToHomePage();">Clear & Restart</button>
+        </center>
+    </div>
+    <footer>
+        <center>
+            <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+        </center>
+    </footer>
+</body>
+</html>

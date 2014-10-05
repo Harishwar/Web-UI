@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Question 3</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+    <div id="top" class="header">
+        <div class="text-vertical-center">
+            <div class="col-lg-12 text-center">
+                <header>
+                    <h4>As per the latest twitter news, complete the article snippet given by selecting appropriate choices for the blanks.</h4>
+                </header>
+                <div>
+                    <h3>Twitter wants more cash. The company announced two  <mark id="mark1" onclick="visibleInput('blank1');">_____</mark> million debt offereings in a filing today, each with a potential $100 increase provided that the sales are oversubscribed. Assuming full tip, including the $100 million boosters <mark id="mark2" onclick="visibleInput('blank2');">_____</mark> will raise up to $1.5 billion with the two offerings.</h3>
+                </div>
+                <h6>Source: <a href="http://techcrunch.com/2014/09/10/twitter-to-raise-up-to-1-5b-in-debt-offering/">TechCrunch</a></h6>
+                <form action="question4.html" onsubmit="return submitques('q3b1','q3b2')" name="q3form" method="GET">
+                    <h3><div id="blank1" name="blank1" style="float:left ;margin-left : 30%; display:none;">
+                    <input type="radio" onchange="setMark('q3b1','mark1');" name="q3b1" id="q3b1" value="$650">&nbsp; $650<br>
+                    <input type="radio" onchange="setMark('q3b1','mark1');" name="q3b1" id="q3b1" value="$550">&nbsp; $550<br>
+                    <input type="radio" onchange="setMark('q3b1','mark1');" name="q3b1" id="q3b1" value="$750">&nbsp; $750<br>
+                    </div>
+                    <div id="blank2" name="blank2" style="float:right ;margin-right : 30%; display:none;">
+                    <input type="radio" onchange="setMark('q3b2','mark2');" name="q3b2" id="q3b2" value="Twitter">&nbsp; Twitter<br>
+                    <input type="radio" onchange="setMark('q3b2','mark2');" name="q3b2" id="q3b2" value="Google">&nbsp; Google<br>
+                    <input type="radio" onchange="setMark('q3b2','mark2');" name="q3b2" id="q3b2" value="Facebook">&nbsp; Facebook<br>
+                    </div></h3>
+                    <br><br><br><br><br>
+                    <input class="btn btn-lg btn-dark" type="submit" value="Submit">&emsp;&emsp;
+                    <input class="btn btn-lg btn-light" type="reset" value="Clear Selection">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <center>
+            <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+        </center>
+    </footer>
+</body>
+</html>
