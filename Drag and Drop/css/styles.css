@@ -1,0 +1,68 @@
+/*Body */
+.form-box {
+    width: 500px;
+    padding-right: 10%;
+    padding-left: 0%;
+}
+.body-box {
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+/* Custom Button Styles */
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: rgb(255, 255, 255);
+}
+.btn-light:hover, .btn-light:focus, .btn-light:active {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    padding-top: 5px;
+    background-color: #ddd;
+}
+
+/*Drag Drop Area*/
+#target {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid #aaaaaa;
+    background: url("../img/icon1.png") no-repeat;
+    background-size: 50px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 768px) {
+    .col-xs-2 {
+        float: none !important;
+        width: 100%;
+    }
+    .col-xs-8 {
+        float: none !important;
+        width: 100%;
+    }
+    .col-xs-offset-2 {
+        margin-left: 0%
+    }
+}

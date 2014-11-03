@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drag Drop Registration Page</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/modernizr-latest.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/sweet-alert-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        /* Email validation */
+        var email1 = $('#inputEmail');
+        var emailinfo = $('#email-info');
+        validateEmail(email1, emailinfo);
+
+        /* Check browser localStorage support */
+        if (!Modernizr.localstorage) {
+            alert('This Browser Doesn\'t Support Local Storage.');
+        } else if (!Modernizr.sessionstorage) {
+            alert('This Browser Doesn\'t Support Session Storage.');
+        };
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>Registration</h1>
+        <form id="regForm" onsubmit="mainFunc(this);return false;" class="form-horizontal" role="form">
+            <legend></legend>
+            <div class="container">
+                <div class="form-group">
+                    <label for="fname" class="col-xs-2">First Name</label>
+                    <input type="text" class="col-xs-8" name="fname" id="inputFname" class="form-control" value="" title="First Name" placeholder="First Name" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="inputLname" class="col-xs-2">Last Name</label>
+                    <input type="text" class="col-xs-8" name="inputLname" id="inputLname" class="form-control" value="" title="Last Name" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-xs-2">Email</label>
+                    <input type="text" class="col-xs-8" name="inputEmail" id="inputEmail" class="form-control" value="" required="required" title="Email" placeholder="name@email.com">&emsp;
+                    <text id="email-info"></text>
+                </div>
+
+                <!-- Image Verification -->
+                <div id="src" class="row text-center">
+                    <h3>Drag & Drop Image</h3>
+                    <div class="col-xs-8 col-xs-offset-2 jumbotron">
+                        <img src="img/icon1.png" width="100px" height="100px" class="img-thumbnail" alt="icon1" draggable="true" id="icon1" name="icon">
+                        <img src="img/icon2.png" width="100px" height="100px" class="img-thumbnail" alt="icon2" draggable="true" id="icon2" name="icon">
+                        <img src="img/icon3.png" width="100px" height="100px" class="img-thumbnail" alt="icon3" draggable="true" id="icon3" name="icon">
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2 jumbotron">
+                        <a href="#" class="thumbnail">
+                            <div id="target">
+                                <h3 id="msg" class="text-muted">Drag & Drop Image Here</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <p id="imageid" class="hidden"></p>
+                </div>
+                <div class="row text-center">
+                    <div id="imagesAlert" class="hidden" role="alert">...</div>
+                </div>
+                <div class="text-center">
+                    <input type="reset" value="Reset" class="btn btn-lg btn-light">&emsp;
+                    <button id="submitButton" type="submit" class="hidden">Submit</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment 4</p>
+    </footer>
+    <script type="text/javascript" src="js/dragdrop.js"></script>
+</body>
+
+</html>
