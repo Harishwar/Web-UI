@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build Your Pizza</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/sweet-alert-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Build Your Pizza</h1>
+        <legend></legend>
+        <!-- First Selection-->
+        <div class="container body-box" id="sizeAndCrust">
+            <div class="col-xs-12 jumbotron">
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class="active"><a onclick="goToSelection('sizeAndCrust','cheeseAndSauce','toppings');">Size & Crust</a>
+                    </li>
+                    <li class="disabled"><a href="#cheeseAndSauce">Cheese & Sauce</a>
+                    </li>
+                    <li class="disabled"><a href="#toppings">Toppings</a>
+                    </li>
+                </ul>
+                <legend></legend>
+                <h2>Choose Size & Crust</h2>
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                        <h4>Hand Tossed</h4>
+                        <text>Garlic seasoned crust with a rich, buttery taste.</text>
+                        <br>
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="handTossedSmall">&nbsp;Small (10")
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="handTossedMedium">&nbsp;Medium (12")
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="handTossedLarge">&nbsp;Large (14")
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="handTossedXLarge">&nbsp;X-Large (16")
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <h4>Handmade Pan</h4>
+                        <text>Two layers of cheese, toppings to the edge, and a crust that bakes up golden and crispy with a buttery taste.</text>
+                        <br>
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="handmadePanMedium">&nbsp;Medium (12")
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                        <h4>Crunchy Thin Crust</h4>
+                        <text>Thin enough for the optimum crispy to crunchy ratio.</text>
+                        <br>
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="crunchyThinMedium">&nbsp;Medium (12")
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="crunchyThinLarge">&nbsp;Large (14")
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                        <h4>Brooklyn Style</h4>
+                        <text>Hand stretched to be big, thin, and perfectly foldable.</text>
+                        <br>
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="brooklynLarge">&nbsp;Large (14")
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="brooklynXLarge">&nbsp;X-Large (16")
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
+                        <h4>Gluten Free Crust</h4>
+                        <text>Domino's pizza made with a Gluten Free Crust.</text>
+                        <br>
+                        <br>
+                        <input type="radio" name="sizeAndCrust" value="glutenFreeSmall">&nbsp;Small (10")
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <button id="resetButton" type="reset" class="btn btn-lg btn-light" onclick="reload();">Cancel</button>&emsp;
+                <button id="submitButton" type="submit" class="btn btn-lg btn-dark" onclick="goToSelection('cheeseAndSauce','sizeAndCrust','toppings');">Next</button>
+                <!-- <a href="#cheeseAndSauce" id=""><div id="submitButton" class="btn btn-lg btn-dark" onclick="">Build</div></a> -->
+            </div>
+        </div>
+        <!-- End First Selection-->
+        <!-- Second Selection-->
+        <div class="container body-box" id="cheeseAndSauce">
+            <div class="col-xs-12 jumbotron">
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class=""><a onclick="goToSelection('sizeAndCrust','cheeseAndSauce','toppings');">Size & Crust</a>
+                    </li>
+                    <li class="active"><a onclick="goToSelection('cheeseAndSauce','sizeAndCrust','toppings');">Cheese & Sauce</a>
+                    </li>
+                    <li class="disabled"><a href="#toppings">Toppings</a>
+                    </li>
+                </ul>
+                <legend></legend>
+                <h2>Choose Cheese & Sauce</h2>
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6">
+                        <h4>Cheese</h4>
+                        <text>Choose the best mix of Cheeses to put on your pizza.</text>
+                        <br>
+                        <br>
+                        <input type="checkbox" name="cheeseChoice" value="Cheddar Cheese">&nbsp;Cheddar Cheese
+                        <br>
+                        <input type="checkbox" name="cheeseChoice" value="Feta Cheese">&nbsp;Feta Cheese
+                        <br>
+                        <input type="checkbox" name="cheeseChoice" value="Shredded Parmesan Asiago">&nbsp;Shredded Parmesan Asiago
+                        <br>
+                        <input type="checkbox" name="cheeseChoice" value="Shredded Provolone Cheese">&nbsp;Shredded Provolone Cheese
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h4>Sauce</h4>
+                        <text>Choose the best mix of sauces to put on your pizza.</text>
+                        <br>
+                        <br>
+                        <input type="checkbox" name="sauceChoice" value="Tomato Sauce">&nbsp;Tomato
+                        <br>
+                        <input type="checkbox" name="sauceChoice" value="Barbecue Sauce">&nbsp;Barbecue
+                        <br>
+                        <input type="checkbox" name="sauceChoice" value="Pesto Sauce">&nbsp;Pesto
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <button id="resetButton" type="reset" class="btn btn-lg btn-light" onclick="reload();">Cancel</button>&emsp;
+                <button id="submitButton" type="submit" class="btn btn-lg btn-dark" onclick="goToSelection('toppings','sizeAndCrust','cheeseAndSauce');">Next</button>
+                <!-- <a href="#cheeseAndSauce" id=""><div id="submitButton" class="btn btn-lg btn-dark" onclick="">Build</div></a> -->
+            </div>
+        </div>
+        <!-- End Second Selection-->
+        <!-- Third Selection-->
+        <div class="container body-box" id="toppings">
+            <div class="col-xs-12 jumbotron">
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class=""><a onclick="goToSelection('sizeAndCrust','cheeseAndSauce','toppings');">Size & Crust</a>
+                    </li>
+                    <li class=""><a onclick="goToSelection('cheeseAndSauce','sizeAndCrust','toppings');">Cheese & Sauce</a>
+                    </li>
+                    <li class="active"><a onclick="goToSelection('toppings','sizeAndCrust','cheeseAndSauce');">Toppings</a>
+                    </li>
+                </ul>
+                <legend></legend>
+                <h2>Toppings</h2>
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6">
+                        <h4>Choose Meats</h4>
+                        <br>
+                        <div class="col-xs-12 col-md-6">
+                            <input type="checkbox" name="meatChoice" value="meatPepperoni">&nbsp;Pepperoni
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Italian Sausage">&nbsp;Italian Sausage
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Sliced Italian Sausage">&nbsp;Sliced Italian Sausage
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Beef">&nbsp;Beef
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Philly Steak">&nbsp;Philly Steak
+                            <br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <input type="checkbox" name="meatChoice" value="Ham">&nbsp;Ham
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Bacon">&nbsp;Bacon
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Salami">&nbsp;Salami
+                            <br>
+                            <input type="checkbox" name="meatChoice" value="Premium Chicken">&nbsp;Premium Chicken
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h4>Choose Non-Meats</h4>
+                        <br>
+                        <div class="col-xs-12 col-md-6">
+                            <input type="checkbox" name="nonMeat" value="nonMeatJalapenoPeppers">&nbsp;Jalapeno Peppers
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Mushrooms">&nbsp;Mushrooms
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Banana">&nbsp;Banana
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Black Olives">&nbsp;Black Olives
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Garlic">&nbsp;Garlic
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Green Peppers">&nbsp;Green Peppers
+                            <br>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <input type="checkbox" name="nonMeat" value="Pineapple">&nbsp;Pineapple
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Onions">&nbsp;Onions
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Roasted Red Peppers">&nbsp;Roasted Red Peppers
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Spinach">&nbsp;Spinach
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Diced Tomatoes">&nbsp;Diced Tomatoes
+                            <br>
+                            <input type="checkbox" name="nonMeat" value="Hot Sauce">&nbsp;Hot Sauce
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <button id="resetButton" type="reset" class="btn btn-lg btn-light" onclick="reload();">Cancel</button>&emsp;
+                <button id="submitButton" type="submit" class="btn btn-lg btn-dark" onclick="getChecked();">Build</button>
+            </div>
+        </div>
+        <!-- End Third Selection-->
+        <!-- Chart Section-->
+        <div class="container body-box" id="googleChart">
+            <div class="container">
+                <h2>Dashboard</h2>
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div id="piechart" style="height: 400px;"></div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div id="donutchart" style="height: 400px;"></div>
+                </div>
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <div id="diffchart" style="height: 400px;"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center">
+                <button id="submitButton" type="submit" class="btn btn-lg btn-dark" onclick="reload();">Home</button>
+            </div>
+        </div>
+        <!-- End Chart Section-->
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+    </footer>
+    <script>
+    document.getElementById('googleChart').style.display = 'none';
+    document.getElementById('sizeAndCrust').style.display = 'block';
+    document.getElementById('cheeseAndSauce').style.display = 'none';
+    document.getElementById('toppings').style.display = 'none';
+    </script>
+</body>
+
+</html>
