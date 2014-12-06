@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebSocket Driver</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/sweet-alert-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>WebSocket Driver</h1>
+        <legend></legend>
+        <div class="col-xs-8 col-xs-offset-2 jumbotron">
+            <h4 class="pull-left">Quiz 1 Score:</h4>
+            <strong>
+                <text class="pull-right" id="quiz1Input"></text>
+            </strong>
+            <input id="quiz1Slider" type="range" name="quiz1Input" min="0" max="100" value="0" onchange="updateTextInput(this);">
+
+            <h4 class="pull-left">Quiz 2 Score:</h4>
+            <strong>
+                <text class="pull-right" id="quiz2Input"></text>
+            </strong>
+            <input id="quiz2Slider" type="range" name="quiz2Input" min="0" max="100" value="0" onchange="updateTextInput(this);">
+
+            <h4 class="pull-left">MidTerm Score:</h4>
+            <strong>
+                <text class="pull-right" id="midtermInput"></text>
+            </strong>
+            <input id="midtermSlider" type="range" name="midtermInput" min="0" max="100" value="0" onchange="updateTextInput(this);">
+        </div>
+
+        <div class="col-xs-8 col-xs-offset-2 row text-center">
+            <button id="resetButton" type="reset" class="btn btn-lg btn-light" onclick="resetInput();">Cancel</button>&emsp;
+            <button id="submitButton" type="submit" class="btn btn-lg btn-dark" onclick="gradingScores();">Grade Me</button>
+        </div>
+    </div>
+    <footer class="text-center">
+        <p class="text-muted">SJSU - CMPE 297 - Assignment</p>
+    </footer>
+</body>
+
+</html>
